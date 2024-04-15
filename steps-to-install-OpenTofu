@@ -1,0 +1,18 @@
+Steps to install OpenTofu
+ 
+wget https://ftp2.osuosl.org/pub/ppc64el/opentofu/opentofu-1.6.1
+cp opentofu-1.6.1 /usr/local/bin/opentofu
+chmod +x /usr/local/bin/opentofu
+ 
+ 
+Steps to download the required Providers
+ 
+mkdir -p /usr/local/tf-providers
+cd /usr/local/tf-providers
+wget https://github.com/ocp-power-automation/terraform-providers-power/releases/download/v0.19/archive.zip
+unzip -o archive.zip
+mv registry.terraform.io registry.opentofu.org
+
+
+initialization step, 
+opentofu init -plugin-dir /usr/local/tf-providers
